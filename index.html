@@ -1,0 +1,1404 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Sumaira Irum Malik | Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg-soft: #f5f9fc;
+        --bg-muted: #edf4f9;
+        --surface: rgba(255, 255, 255, 0.96);
+        --surface-dark: #071722;
+        --accent: #0b3d5c;
+        --accent-secondary: #1572a1;
+        --accent-light: #dff2ff;
+        --text-primary: #102131;
+        --text-muted: #596977;
+        --border: rgba(11, 61, 92, 0.09);
+        --shadow-soft: 0 20px 60px rgba(15, 23, 42, 0.08);
+        --shadow-strong: 0 30px 80px rgba(2, 12, 27, 0.32);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        color: var(--text-primary);
+        background: linear-gradient(
+          180deg,
+          #06141f 0,
+          #0d2232 14rem,
+          #f5f9fc 14rem,
+          #fbfdff 100%
+        );
+        line-height: 1.7;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .navbar {
+        background: rgba(6, 20, 31, 0.76);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .navbar-brand {
+        font-family: "Manrope", sans-serif;
+        font-size: 1.15rem;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+      }
+
+      .navbar .nav-link {
+        color: rgba(255, 255, 255, 0.82) !important;
+        font-weight: 600;
+        padding: 0.7rem 1rem !important;
+        border-radius: 999px;
+        transition:
+          background-color 0.25s ease,
+          color 0.25s ease,
+          transform 0.25s ease;
+      }
+
+      .navbar .nav-link:hover {
+        color: #ffffff !important;
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-1px);
+      }
+
+      .navbar-toggler {
+        border: 0;
+        box-shadow: none !important;
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        padding: 170px 20px 110px;
+        background: linear-gradient(
+          135deg,
+          #071722 0%,
+          #0b3550 42%,
+          #0f5f7c 100%
+        );
+        color: white;
+      }
+
+      .hero::before,
+      .hero::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(12px);
+      }
+
+      .hero::before {
+        top: -140px;
+        right: -80px;
+        width: 340px;
+        height: 340px;
+        background: radial-gradient(
+          circle,
+          rgba(73, 177, 226, 0.36) 0%,
+          rgba(73, 177, 226, 0) 70%
+        );
+      }
+
+      .hero::after {
+        bottom: -160px;
+        left: -60px;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.16) 0%,
+          rgba(255, 255, 255, 0) 72%
+        );
+      }
+
+      .hero-shell {
+        position: relative;
+        z-index: 1;
+        isolation: isolate;
+      }
+
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.16);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #ffffff;
+        font-size: 0.86rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .hero-eyebrow::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #78d4ff;
+        box-shadow: 0 0 14px rgba(120, 212, 255, 0.75);
+      }
+
+      .hero-title {
+        margin: 22px 0 16px;
+        font-family: "Manrope", sans-serif;
+        font-size: clamp(2.8rem, 6vw, 4.9rem);
+        font-weight: 800;
+        line-height: 1.02;
+        letter-spacing: -0.04em;
+        text-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      .hero-subtitle {
+        margin-bottom: 16px;
+        color: #f1fbff;
+        font-size: 1.3rem;
+        font-weight: 600;
+      }
+
+      .hero-description {
+        max-width: 680px;
+        margin-bottom: 34px;
+        color: rgba(255, 255, 255, 0.92);
+        font-size: 1.02rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-bottom: 36px;
+      }
+
+      .btn-modern-primary,
+      .btn-modern-secondary {
+        padding: 14px 22px;
+        border-radius: 16px;
+        font-weight: 700;
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease,
+          background-color 0.25s ease,
+          color 0.25s ease;
+      }
+
+      .btn-modern-primary {
+        background: #ffffff;
+        color: var(--accent);
+        box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
+      }
+
+      .btn-modern-primary:hover {
+        color: var(--accent);
+        transform: translateY(-2px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
+      }
+
+      .btn-modern-secondary {
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        background: rgba(7, 23, 34, 0.22);
+        color: #ffffff;
+      }
+
+      .btn-modern-secondary:hover {
+        color: #ffffff;
+        background: rgba(7, 23, 34, 0.34);
+        transform: translateY(-2px);
+      }
+
+      .hero-metrics {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+        gap: 16px;
+        max-width: 720px;
+      }
+
+      .metric-card {
+        padding: 18px 20px;
+        border-radius: 22px;
+        background: rgba(4, 18, 28, 0.32);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.06),
+          0 18px 30px rgba(3, 14, 22, 0.18);
+        backdrop-filter: blur(14px);
+      }
+
+      .metric-value {
+        display: block;
+        margin-bottom: 4px;
+        font-family: "Manrope", sans-serif;
+        font-size: 1.85rem;
+        font-weight: 800;
+        line-height: 1.1;
+      }
+
+      .metric-label {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.88);
+        font-size: 0.94rem;
+      }
+
+      .hero-panel {
+        padding: 32px;
+        border-radius: 30px;
+        background: linear-gradient(
+          180deg,
+          rgba(4, 18, 28, 0.66),
+          rgba(9, 34, 48, 0.78)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: var(--shadow-strong);
+        backdrop-filter: blur(18px);
+      }
+
+      .panel-label {
+        display: inline-flex;
+        margin-bottom: 18px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        color: #ffffff;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .hero-panel h3 {
+        margin-bottom: 18px;
+        font-family: "Manrope", sans-serif;
+        font-size: 1.65rem;
+        line-height: 1.25;
+        color: #ffffff;
+      }
+
+      .hero-list {
+        margin: 0 0 24px;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 12px;
+      }
+
+      .hero-list li {
+        position: relative;
+        padding-left: 28px;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .hero-list li::before {
+        content: "•";
+        position: absolute;
+        left: 6px;
+        color: #8fdcff;
+        font-size: 1.2rem;
+        line-height: 1;
+      }
+
+      .hero-location {
+        padding: 16px 18px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        color: #ffffff;
+        font-weight: 600;
+      }
+
+      .section {
+        padding: 96px 20px;
+      }
+
+      .section-soft {
+        background: linear-gradient(180deg, #eef5fa 0%, #f8fbfd 100%);
+      }
+
+      .section-header {
+        max-width: 780px;
+        margin: 0 auto 52px;
+        text-align: center;
+      }
+
+      .section-kicker {
+        display: inline-flex;
+        align-items: center;
+        margin-bottom: 16px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(11, 61, 92, 0.08);
+        color: var(--accent);
+        font-size: 0.84rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .section-title {
+        margin-bottom: 16px;
+        font-family: "Manrope", sans-serif;
+        font-size: clamp(2rem, 4.1vw, 3.1rem);
+        font-weight: 800;
+        line-height: 1.14;
+        letter-spacing: -0.03em;
+        text-align: center;
+        color: #0e1d2b;
+      }
+
+      .section-text {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 1.02rem;
+      }
+
+      .content-card,
+      .skill-card,
+      .achievement-card,
+      .gallery-card {
+        border: 1px solid var(--border);
+        background: var(--surface);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .content-card {
+        height: 100%;
+        padding: 32px;
+        border-radius: 30px;
+      }
+
+      .about-summary p:last-child {
+        margin-bottom: 0;
+      }
+
+      .card-heading {
+        margin-bottom: 18px;
+        font-family: "Manrope", sans-serif;
+        font-size: 1.28rem;
+        font-weight: 800;
+        color: #0f1f2f;
+      }
+
+      .highlight-list {
+        display: grid;
+        gap: 14px;
+      }
+
+      .highlight-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 18px;
+        border-radius: 22px;
+        background: #f5fafe;
+        border: 1px solid rgba(11, 61, 92, 0.08);
+      }
+
+      .highlight-value {
+        min-width: 96px;
+        color: var(--accent);
+        font-family: "Manrope", sans-serif;
+        font-weight: 800;
+      }
+
+      .highlight-item p {
+        margin: 0;
+        color: var(--text-muted);
+      }
+
+      .skill-card {
+        height: 100%;
+        padding: 28px;
+        border-radius: 28px;
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+
+      .skill-card:hover,
+      .achievement-card:hover,
+      .gallery-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 26px 60px rgba(15, 23, 42, 0.12);
+      }
+
+      .skill-icon {
+        display: grid;
+        place-items: center;
+        width: 56px;
+        height: 56px;
+        margin-bottom: 18px;
+        border-radius: 18px;
+        background: linear-gradient(135deg, #0b3d5c 0%, #1f80b0 100%);
+        color: white;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+      }
+
+      .skill-title {
+        margin-bottom: 14px;
+        font-family: "Manrope", sans-serif;
+        font-size: 1.18rem;
+        font-weight: 800;
+      }
+
+      .skill-list {
+        margin: 0;
+        padding-left: 1.15rem;
+        color: var(--text-muted);
+      }
+
+      .skill-list li + li {
+        margin-top: 8px;
+      }
+
+      .experience-section {
+        background: linear-gradient(180deg, #ffffff 0%, #f6fbfe 100%);
+      }
+
+      .experience-intro {
+        max-width: 760px;
+        margin: 0 auto 52px;
+        text-align: center;
+        color: var(--text-muted);
+      }
+
+      .experience-badge {
+        display: inline-flex;
+        align-items: center;
+        margin-bottom: 16px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(11, 61, 92, 0.08);
+        color: var(--accent);
+        font-size: 0.84rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .experience-timeline {
+        position: relative;
+        display: grid;
+        gap: 24px;
+      }
+
+      .experience-timeline::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 24px;
+        width: 2px;
+        background: linear-gradient(180deg, #0b3d5c 0%, #8bcbe8 100%);
+        opacity: 0.18;
+      }
+
+      .experience-card {
+        position: relative;
+        margin-left: 58px;
+        padding: 28px 30px;
+        border: 1px solid var(--border);
+        border-radius: 26px;
+        background: #ffffff;
+        box-shadow: var(--shadow-soft);
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+
+      .experience-card::before {
+        content: "";
+        position: absolute;
+        top: 32px;
+        left: -46px;
+        width: 15px;
+        height: 15px;
+        border: 4px solid #ffffff;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 0 8px rgba(120, 183, 217, 0.18);
+      }
+
+      .experience-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 26px 60px rgba(15, 23, 42, 0.12);
+      }
+
+      .experience-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 14px;
+        flex-wrap: wrap;
+      }
+
+      .experience-role {
+        margin-bottom: 6px;
+        font-family: "Manrope", sans-serif;
+        color: #12212f;
+        font-weight: 800;
+      }
+
+      .experience-org {
+        margin-bottom: 0;
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      .experience-period {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: #eef7fc;
+        color: var(--accent);
+        font-size: 0.95rem;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      .experience-card p:last-child {
+        margin-bottom: 0;
+        color: var(--text-muted);
+      }
+
+      .achievement-card {
+        height: 100%;
+        padding: 28px;
+        border-radius: 26px;
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+
+      .achievement-tag {
+        display: inline-flex;
+        margin-bottom: 16px;
+        padding: 7px 12px;
+        border-radius: 999px;
+        background: var(--accent-light);
+        color: var(--accent);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .achievement-title {
+        margin-bottom: 10px;
+        font-family: "Manrope", sans-serif;
+        font-size: 1.18rem;
+        font-weight: 800;
+      }
+
+      .achievement-text {
+        margin-bottom: 0;
+        color: var(--text-muted);
+      }
+
+      .gallery-card {
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+        border-radius: 30px;
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+
+      .gallery-card img {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+        transition: transform 0.45s ease;
+      }
+
+      .gallery-card:hover img {
+        transform: scale(1.06);
+      }
+
+      .gallery-overlay {
+        position: absolute;
+        inset: auto 0 0 0;
+        padding: 24px;
+        background: linear-gradient(
+          180deg,
+          rgba(7, 23, 34, 0) 0%,
+          rgba(7, 23, 34, 0.88) 100%
+        );
+        color: white;
+      }
+
+      .gallery-overlay h5 {
+        margin-bottom: 6px;
+        font-family: "Manrope", sans-serif;
+        font-size: 1.08rem;
+        font-weight: 800;
+      }
+
+      .gallery-overlay p {
+        margin-bottom: 0;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.94rem;
+      }
+
+      .contact-card {
+        padding: 42px;
+        border-radius: 34px;
+        background: linear-gradient(
+          135deg,
+          #081926 0%,
+          #0f3d5d 56%,
+          #116f8c 100%
+        );
+        color: white;
+        box-shadow: var(--shadow-strong);
+      }
+
+      .contact-card .section-kicker {
+        background: rgba(255, 255, 255, 0.12);
+        color: white;
+      }
+
+      .contact-card .section-title {
+        color: white;
+        text-align: left;
+      }
+
+      .contact-card .section-text {
+        color: rgba(255, 255, 255, 0.8);
+        text-align: left;
+      }
+
+      .contact-stack {
+        display: grid;
+        gap: 14px;
+      }
+
+      .contact-item {
+        padding: 18px 20px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .contact-item span {
+        display: block;
+        margin-bottom: 6px;
+        color: rgba(255, 255, 255, 0.64);
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .contact-item a,
+      .contact-item strong {
+        color: white;
+        font-weight: 600;
+      }
+
+      .contact-item a:hover {
+        color: #d8f3ff;
+      }
+
+      .footer {
+        padding: 28px 20px 44px;
+        color: #658093;
+        text-align: center;
+      }
+
+      .footer p {
+        margin-bottom: 0;
+      }
+
+      @media (max-width: 991.98px) {
+        .hero {
+          padding-top: 150px;
+          text-align: center;
+        }
+
+        .hero-description {
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .hero-actions {
+          justify-content: center;
+        }
+
+        .hero-panel {
+          max-width: 640px;
+          margin: 0 auto;
+        }
+
+        .contact-card .section-title,
+        .contact-card .section-text {
+          text-align: center;
+        }
+
+        .contact-card .hero-actions {
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 767.98px) {
+        .section {
+          padding: 82px 20px;
+        }
+
+        .content-card,
+        .skill-card,
+        .achievement-card,
+        .contact-card,
+        .hero-panel {
+          padding: 24px;
+          border-radius: 24px;
+        }
+
+        .experience-timeline::before {
+          left: 16px;
+        }
+
+        .experience-card {
+          margin-left: 42px;
+          padding: 22px;
+        }
+
+        .experience-card::before {
+          top: 26px;
+          left: -34px;
+        }
+
+        .gallery-card img {
+          height: 280px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container py-2">
+        <a class="navbar-brand" href="#">Sumaira Malik</a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+          aria-controls="navMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#expertise">Expertise</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#experience">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#gallery">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="container hero-shell">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7">
+            <span class="hero-eyebrow"
+              >UNICEF Global Roster Consultant · 2025–2028</span
+            >
+
+            <h1 class="hero-title">SUMAIRA IRUM MALIK</h1>
+
+            <p class="hero-subtitle">
+              Immunization, Gender &amp; Vaccine Management Specialist
+            </p>
+
+            <p class="hero-description">
+              Senior Public Health and Immunization Specialist with over 15
+              years of international experience strengthening Expanded Programme
+              on Immunization (EPI), vaccine supply chains, outbreak response
+              systems, and digital immunization data platforms.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#experience" class="btn btn-modern-primary"
+                >Explore Experience</a
+              >
+              <a href="#contact" class="btn btn-modern-secondary"
+                >Let&apos;s Connect</a
+              >
+            </div>
+
+            <div class="hero-metrics">
+              <div class="metric-card">
+                <span class="metric-value">15+</span>
+                <p class="metric-label">
+                  Years in global public health leadership
+                </p>
+              </div>
+
+              <div class="metric-card">
+                <span class="metric-value">7+</span>
+                <p class="metric-label">
+                  Countries supported through EVM assessments
+                </p>
+              </div>
+
+              <div class="metric-card">
+                <span class="metric-value">500+</span>
+                <p class="metric-label">Remote temperature devices deployed</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="hero-panel">
+              <span class="panel-label">Strategic Focus</span>
+
+              <h3>
+                Leading resilient vaccine systems with equity, data, and
+                delivery at the center.
+              </h3>
+
+              <ul class="hero-list">
+                <li>
+                  Routine immunization strengthening and zero-dose planning
+                </li>
+                <li>
+                  Effective Vaccine Management and cold chain optimization
+                </li>
+                <li>
+                  Digital dashboards, DHIS2 integration, and GIS risk mapping
+                </li>
+                <li>Outbreak response and gender-responsive program support</li>
+              </ul>
+
+              <div class="hero-location">
+                Based in Lahore, Pakistan · Available for international
+                assignments, technical reviews, and advisory support.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">About</span>
+          <h2 class="section-title">
+            Public health leadership grounded in field experience and system
+            design
+          </h2>
+          <p class="section-text">
+            Supporting Ministries of Health and global partners with strategic
+            immunization guidance, vaccine management expertise, and practical
+            implementation support across complex health systems.
+          </p>
+        </div>
+
+        <div class="row g-4 align-items-stretch">
+          <div class="col-lg-7">
+            <div class="content-card about-summary">
+              <h3 class="card-heading">Profile Summary</h3>
+
+              <p>
+                Sumaira Irum Malik is a senior Public Health, Immunization, and
+                Vaccine Management Specialist with more than 15 years of
+                international experience supporting Ministries of Health and
+                global partners including UNICEF, WHO, Gavi, and UNFPA.
+              </p>
+
+              <p>
+                She specializes in strengthening routine immunization systems,
+                optimizing vaccine supply chains, conducting Effective Vaccine
+                Management (EVM 2.0) assessments, and developing Comprehensive
+                Improvement Plans (CiP). Her work combines technical
+                immunization leadership with digital innovation including Power
+                BI dashboards, DHIS2 integration, remote temperature monitoring
+                systems, GIS risk mapping, and centralized immunization data
+                platforms.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="content-card">
+              <h3 class="card-heading">Signature Strengths</h3>
+
+              <div class="highlight-list">
+                <div class="highlight-item">
+                  <span class="highlight-value">15+ Years</span>
+                  <p>
+                    Strengthening immunization systems through policy support,
+                    technical missions, and implementation guidance.
+                  </p>
+                </div>
+
+                <div class="highlight-item">
+                  <span class="highlight-value">UNICEF · WHO</span>
+                  <p>
+                    Trusted across multilateral partnerships, advisory roles,
+                    and cross-country collaboration.
+                  </p>
+                </div>
+
+                <div class="highlight-item">
+                  <span class="highlight-value">Data + Delivery</span>
+                  <p>
+                    Combining analytics, digital systems, and operations for
+                    measurable program improvement.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="expertise" class="section section-soft">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Expertise</span>
+          <h2 class="section-title">
+            Core expertise across immunization systems and vaccine operations
+          </h2>
+          <p class="section-text">
+            Blending strategy, implementation support, and digital innovation to
+            improve program performance at country and regional levels.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-xl-3">
+            <div class="skill-card">
+              <div class="skill-icon">RI</div>
+              <h3 class="skill-title">Immunization Systems</h3>
+              <ul class="skill-list">
+                <li>Routine immunization strengthening</li>
+                <li>Zero-dose and urban immunization planning</li>
+                <li>New vaccine introduction support</li>
+                <li>Polio eradication and integrated service delivery</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3">
+            <div class="skill-card">
+              <div class="skill-icon">EVM</div>
+              <h3 class="skill-title">Vaccine Management</h3>
+              <ul class="skill-list">
+                <li>EVM 2.0 assessments and CiP development</li>
+                <li>Cold chain and supply chain optimization</li>
+                <li>Performance monitoring and accountability systems</li>
+                <li>Regional and national capacity building</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3">
+            <div class="skill-card">
+              <div class="skill-icon">DX</div>
+              <h3 class="skill-title">Digital Innovation</h3>
+              <ul class="skill-list">
+                <li>Power BI dashboards and centralized reporting</li>
+                <li>DHIS2 integration and immunization data platforms</li>
+                <li>Remote temperature monitoring systems</li>
+                <li>GIS risk mapping and evidence-based planning</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3">
+            <div class="skill-card">
+              <div class="skill-icon">GE</div>
+              <h3 class="skill-title">Equity &amp; Response</h3>
+              <ul class="skill-list">
+                <li>Gender-responsive immunization programming</li>
+                <li>Equity-focused outreach strategies</li>
+                <li>Outbreak preparedness and response support</li>
+                <li>Stakeholder coordination in fragile settings</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section experience-section">
+      <div class="container">
+        <div class="experience-intro">
+          <span class="experience-badge">Global Consulting Journey</span>
+          <h2 class="section-title mb-3">Professional Experience</h2>
+          <p>
+            A snapshot of international assignments supporting immunization
+            systems, vaccine management, gender-responsive programming, and
+            outbreak readiness across multiple UNICEF contexts.
+          </p>
+        </div>
+
+        <div class="experience-timeline">
+          <div class="experience-card">
+            <div class="experience-meta">
+              <div>
+                <h5 class="experience-role">
+                  International EVM Support Consultant
+                </h5>
+                <p class="experience-org">UNICEF Lebanon</p>
+              </div>
+
+              <span class="experience-period">2025</span>
+            </div>
+
+            <p>
+              Delivered technical support for Effective Vaccine Management
+              strengthening, helping improve supply chain performance and
+              operational readiness.
+            </p>
+          </div>
+
+          <div class="experience-card">
+            <div class="experience-meta">
+              <div>
+                <h5 class="experience-role">
+                  EPI Desk Review &amp; EVM Consultant
+                </h5>
+                <p class="experience-org">UNICEF Libya</p>
+              </div>
+
+              <span class="experience-period">2023–2024</span>
+            </div>
+
+            <p>
+              Led desk review and vaccine management analysis to identify system
+              gaps, inform improvement planning, and strengthen immunization
+              service delivery.
+            </p>
+          </div>
+
+          <div class="experience-card">
+            <div class="experience-meta">
+              <div>
+                <h5 class="experience-role">
+                  Regional Vaccine Management Consultant
+                </h5>
+                <p class="experience-org">UNICEF MENARO</p>
+              </div>
+
+              <span class="experience-period">2022–2023</span>
+            </div>
+
+            <p>
+              Supported regional vaccine management priorities, capacity
+              building, and performance monitoring across country immunization
+              supply chains.
+            </p>
+          </div>
+
+          <div class="experience-card">
+            <div class="experience-meta">
+              <div>
+                <h5 class="experience-role">
+                  Polio Outbreak Response Consultant
+                </h5>
+                <p class="experience-org">UNICEF Yemen</p>
+              </div>
+
+              <span class="experience-period">2020–2021</span>
+            </div>
+
+            <p>
+              Contributed to outbreak response planning, coordination, and field
+              implementation support in complex emergency settings.
+            </p>
+          </div>
+
+          <div class="experience-card">
+            <div class="experience-meta">
+              <div>
+                <h5 class="experience-role">
+                  Immunization Specialist – Gender &amp; Equity
+                </h5>
+                <p class="experience-org">UNICEF Afghanistan</p>
+              </div>
+
+              <span class="experience-period">2016–2018</span>
+            </div>
+
+            <p>
+              Advanced gender-responsive and equity-focused immunization
+              strategies to expand access for underserved communities and
+              improve program reach.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Achievements</span>
+          <h2 class="section-title">Selected impact highlights</h2>
+          <p class="section-text">
+            A few examples of results delivered through technical leadership,
+            capacity building, and system strengthening initiatives.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-xl-4">
+            <div class="achievement-card">
+              <span class="achievement-tag">Recognition</span>
+              <h3 class="achievement-title">UNICEF Global Roster Consultant</h3>
+              <p class="achievement-text">
+                Selected for the UNICEF global consultant roster for the
+                2025–2028 cycle.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-4">
+            <div class="achievement-card">
+              <span class="achievement-tag">Capacity Building</span>
+              <h3 class="achievement-title">EVM 2.0 Master Trainer</h3>
+              <p class="achievement-text">
+                Supported regional learning and technical capacity development
+                across MENARO contexts.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-4">
+            <div class="achievement-card">
+              <span class="achievement-tag">Country Support</span>
+              <h3 class="achievement-title">7+ National EVM Assessments</h3>
+              <p class="achievement-text">
+                Led or contributed to national vaccine management assessments in
+                multiple countries.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-4">
+            <div class="achievement-card">
+              <span class="achievement-tag">Digital Systems</span>
+              <h3 class="achievement-title">Regional Supply Chain Dashboard</h3>
+              <p class="achievement-text">
+                Developed digital visibility tools to improve monitoring and
+                decision-making for immunization programs.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-4">
+            <div class="achievement-card">
+              <span class="achievement-tag">Technology</span>
+              <h3 class="achievement-title">500+ RTM Devices Deployed</h3>
+              <p class="achievement-text">
+                Expanded cold chain monitoring capacity through large-scale
+                deployment of remote temperature monitoring devices.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section section-soft">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Gallery</span>
+          <h2 class="section-title">
+            Fieldwork, workshops, and technical collaboration
+          </h2>
+          <p class="section-text">
+            Moments from regional missions, partner engagement, training
+            sessions, and immunization system strengthening activities.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-xl-4">
+            <div class="gallery-card">
+              <img src="images/event1.jpg" alt="Technical workshop session" />
+              <div class="gallery-overlay">
+                <h5>Technical Workshops</h5>
+                <p>
+                  Facilitating capacity building and peer learning sessions.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-4">
+            <div class="gallery-card">
+              <img src="images/event2.jpg" alt="Regional stakeholder meeting" />
+              <div class="gallery-overlay">
+                <h5>Regional Coordination</h5>
+                <p>Partner engagement for vaccine management and planning.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-4">
+            <div class="gallery-card">
+              <img src="images/event3.jpg" alt="Immunization field mission" />
+              <div class="gallery-overlay">
+                <h5>Field Missions</h5>
+                <p>On-site support for program implementation and review.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-4">
+            <div class="gallery-card">
+              <img
+                src="images/event4.jpg"
+                alt="Cold chain assessment activity"
+              />
+              <div class="gallery-overlay">
+                <h5>Cold Chain Assessments</h5>
+                <p>Strengthening vaccine storage and monitoring systems.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-4">
+            <div class="gallery-card">
+              <img
+                src="images/event5.jpg"
+                alt="Data review and planning meeting"
+              />
+              <div class="gallery-overlay">
+                <h5>Data-Driven Planning</h5>
+                <p>Using analytics and dashboards to guide decisions.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-4">
+            <div class="gallery-card">
+              <img
+                src="images/event6.jpg"
+                alt="Public health collaboration event"
+              />
+              <div class="gallery-overlay">
+                <h5>Global Collaboration</h5>
+                <p>Working with partners to improve immunization outcomes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="contact-card">
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-7">
+              <span class="section-kicker">Contact</span>
+              <h2 class="section-title mb-3">
+                Open to strategic advisory and global health collaboration
+              </h2>
+              <p class="section-text mb-4">
+                If you would like to collaborate on immunization system
+                strengthening, vaccine management, or digital health innovation,
+                get in touch for consulting, technical review, or program
+                support.
+              </p>
+
+              <div class="hero-actions mb-0">
+                <a
+                  href="mailto:sirum_pk@outlook.com"
+                  class="btn btn-modern-primary"
+                  >Send Email</a
+                >
+                <a href="#experience" class="btn btn-modern-secondary"
+                  >View Experience</a
+                >
+              </div>
+            </div>
+
+            <div class="col-lg-5">
+              <div class="contact-stack">
+                <div class="contact-item">
+                  <span>Email</span>
+                  <a href="mailto:sirum_pk@outlook.com">sirum_pk@outlook.com</a>
+                </div>
+
+                <div class="contact-item">
+                  <span>Phone / WhatsApp</span>
+                  <a href="tel:+923210004898">+92 321 0004898</a>
+                </div>
+
+                <div class="contact-item">
+                  <span>Location</span>
+                  <strong>Lahore, Pakistan</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p>© 2026 Sumaira Irum Malik · Portfolio Website</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
