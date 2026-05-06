@@ -18,19 +18,20 @@
 
     <style>
       :root {
-        --bg: #f7f6f3;
+        /* UNICEF-inspired palette */
+        --bg: #f4fbff; /* very light blue */
         --surface: #ffffff;
-        --surface-soft: #f6faf7;
-        --ink: #1f2a26;
-        --muted: #5a6762;
-        --line: #d5dfd8;
-        --brand: #1f5c4a;
-        --brand-2: #2f8f73;
-        --accent: #bb6b3f;
-        --shadow: 0 22px 46px rgba(23, 39, 33, 0.1);
-        --hero-a: #173d34;
-        --hero-b: #1f5c4a;
-        --hero-c: #122a24;
+        --surface-soft: #f0f7fb;
+        --ink: #002a3a; /* deep navy for text */
+        --muted: #4b6e84;
+        --line: #dbeffb;
+        --brand: #009EE0; /* UNICEF primary blue */
+        --brand-2: #0077B6; /* darker blue */
+        --accent: #FFD100; /* warm accent (subtle) */
+        --shadow: 0 22px 46px rgba(0, 78, 140, 0.08);
+        --hero-a: #005EA6;
+        --hero-b: #009EE0;
+        --hero-c: #003f65;
       }
 
       html {
@@ -65,7 +66,7 @@
 
       .navbar {
         border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-        background: linear-gradient(90deg, rgba(23, 61, 52, 0.96), rgba(18, 42, 36, 0.94));
+        background: linear-gradient(90deg, rgba(0, 94, 166, 0.96), rgba(0, 63, 101, 0.94));
         backdrop-filter: blur(8px);
       }
 
@@ -159,7 +160,7 @@
       }
 
       .hero-kicker {
-        display: inline-flex;
+        display: inline-block;
         align-items: center;
         padding: 8px 14px;
         border-radius: 999px;
@@ -169,6 +170,108 @@
         font-weight: 700;
         letter-spacing: 0.06em;
         text-transform: uppercase;
+        margin-top: 16px;
+        margin-bottom: 18px;
+      }
+
+      .hero-greeting {
+        display: block;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.88);
+        margin-bottom: 8px;
+        letter-spacing: 0.02em;
+      }
+
+      .hero-action-buttons {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 24px;
+        align-items: center;
+      }
+
+      .hero-btn {
+        padding: 13px 32px;
+        border-radius: 50px;
+        border: none;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.98rem;
+        cursor: pointer;
+        transition: all 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+        letter-spacing: 0.05em;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px rgba(255, 255, 255, 0.2);
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transition: left 600ms ease;
+      }
+
+      .hero-btn:hover::before {
+        left: 100%;
+      }
+
+      .hero-btn:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.3);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.08) 100%);
+      }
+
+      .hero-btn:active {
+        transform: translateY(-2px);
+      }
+
+      .hero-btn.primary {
+        background: linear-gradient(135deg, #fff 0%, #f8f9ff 100%);
+        color: var(--brand);
+        box-shadow: 0 12px 40px rgba(255, 255, 255, 0.4), 0 0 20px rgba(0, 158, 224, 0.15);
+        font-weight: 800;
+      }
+
+      .hero-btn.primary:hover {
+        background: linear-gradient(135deg, #ffffff 0%, #fafbff 100%);
+        box-shadow: 0 20px 50px rgba(255, 255, 255, 0.5), 0 0 30px rgba(0, 158, 224, 0.25);
+        transform: translateY(-5px);
+      }
+
+      .hero-social-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        color: #fff;
+        font-weight: 900;
+        font-size: 1.15rem;
+        cursor: pointer;
+        transition: all 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+        margin-top: 0;
+        margin-left: 8px;
+        box-shadow: 0 10px 32px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(8px);
+      }
+
+      .hero-social-icon:hover {
+        transform: translateY(-5px) scale(1.15);
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
+        border-color: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3), inset 0 1px rgba(255, 255, 255, 0.15);
       }
 
       .hero-title {
@@ -241,8 +344,8 @@
         display: inline-flex;
         border: 1px solid #d0ddd5;
         border-radius: 999px;
-        background: #eef7f2;
-        color: #2f5b4f;
+        background: #eaf6ff;
+        color: var(--brand-2);
         padding: 6px 12px;
         font-size: 0.81rem;
         font-weight: 700;
@@ -307,7 +410,7 @@
 
       .topic-card:hover {
         transform: translateY(-4px);
-        box-shadow: 0 16px 30px rgba(31, 92, 74, 0.15);
+        box-shadow: 0 16px 30px rgba(0, 94, 166, 0.15);
       }
 
       .topic-card h4 {
@@ -349,11 +452,11 @@
       }
 
       .chip {
-        border: 1px solid #d5e3db;
+        border: 1px solid #d5e9f5;
         border-radius: 999px;
         padding: 5px 10px;
-        background: #eef8f2;
-        color: #326252;
+        background: #eaf6ff;
+        color: var(--brand-2);
         font-size: 0.82rem;
         font-weight: 700;
         transition: transform 0.2s ease, background-color 0.2s ease;
@@ -381,7 +484,7 @@
 
       .experience-item:hover {
         transform: translateY(-3px);
-        box-shadow: 0 14px 26px rgba(31, 92, 74, 0.14);
+        box-shadow: 0 14px 26px rgba(0, 94, 166, 0.14);
       }
 
       .exp-head {
@@ -441,6 +544,103 @@
       .reveal.is-visible {
         opacity: 1;
         transform: translateY(0) scale(1);
+      }
+
+      /* Additional animations and visual refinements */
+      @keyframes floatY {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+        100% { transform: translateY(0); }
+      }
+
+      @keyframes popIn {
+        0% { transform: scale(0.92); opacity: 0; }
+        60% { transform: scale(1.03); opacity: 1; }
+        100% { transform: scale(1); opacity: 1; }
+      }
+
+      .hero-badge {
+        will-change: transform, opacity;
+        animation: popIn 700ms cubic-bezier(.2,.9,.3,1) both;
+      }
+
+      .hero-badge:nth-child(1) { animation-delay: 120ms; }
+      .hero-badge:nth-child(2) { animation-delay: 220ms; }
+      .hero-badge:nth-child(3) { animation-delay: 320ms; }
+
+      .hero-orb {
+        transition: transform 0.6s ease;
+        animation: floatY 4s ease-in-out infinite;
+      }
+
+      .navbar .nav-link {
+        position: relative;
+        overflow: visible;
+      }
+
+      .navbar .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 12%;
+        right: 12%;
+        bottom: 6px;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(255,255,255,0.9), rgba(255,255,255,0.5));
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 220ms ease;
+        border-radius: 2px;
+        opacity: 0.95;
+      }
+
+      .navbar .nav-link:hover::after,
+      .navbar .nav-link.active::after {
+        transform: scaleX(1);
+      }
+
+      .chip:hover {
+        background: #e0f4ff;
+        transform: translateY(-3px) scale(1.01);
+      }
+
+      .back-to-top {
+        position: fixed;
+        right: 20px;
+        bottom: 22px;
+        width: 44px;
+        height: 44px;
+        border-radius: 999px;
+        border: none;
+        background: var(--brand);
+        color: #fff;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        display: grid;
+        place-items: center;
+        font-size: 18px;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(8px);
+        transition: opacity 260ms ease, transform 260ms ease, visibility 260ms;
+        z-index: 1100;
+      }
+
+      .back-to-top.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .hero-orb,
+        .hero-badge,
+        .topic-card,
+        .experience-item,
+        .summary-item,
+        .back-to-top {
+          animation: none !important;
+          transition: none !important;
+        }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -520,7 +720,7 @@
     <div class="scroll-progress" aria-hidden="true"></div>
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#top">Sumaira Malik</a>
+        <a class="navbar-brand" href="#top">Sumaira Irum Malik</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -538,7 +738,9 @@
             <li class="nav-item"><a class="nav-link" href="#summary">Profile</a></li>
             <li class="nav-item"><a class="nav-link" href="#data-analytics">Data &amp; M&amp;E</a></li>
             <li class="nav-item"><a class="nav-link" href="#immunization">Immunization</a></li>
-            <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+            <li class="nav-item"><a class="nav-link" href="#experience">Experince &amp; Skill</a></li>
+            <li class="nav-item"><a class="nav-link" href="#it-skills">IT Skills</a></li>
+            <li class="nav-item"><a class="nav-link" href="#achivements">Achivements</a></li>
             <li class="nav-item"><a class="nav-link" href="#credentials">Credentials</a></li>
             <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
           </ul>
@@ -551,14 +753,21 @@
         <div class="hero-panel">
           <span class="hero-orb orb-one" aria-hidden="true"></span>
           <span class="hero-orb orb-two" aria-hidden="true"></span>
-          <div class="row g-4 align-items-start">
+          <div class="row g-4 align-items-center">
             <div class="col-lg-8">
-              <span class="hero-kicker">UNICEF Global Roster Consultant 2025-2028</span>
+              <span class="hero-greeting">Hello, I'm</span>
               <h1 class="hero-title">SUMAIRA IRUM MALIK</h1>
               <p class="hero-role">
-                Senior Programme Specialist | Data &amp; Analytics | Immunization &amp;
-                Vaccine Management | M&amp;E
+                Senior Programme Specialist | Data &amp; Analytics | Immunization &amp; Vaccine Management | M&amp;E
               </p>
+              <span class="hero-kicker">UNICEF Global Roster Consultant 2025-2028</span>
+              <div class="hero-action-buttons">
+                <a href="#" class="hero-btn primary">📥 Download CV</a>
+                <a href="#contact" class="hero-btn">✉️ Contact Info</a>
+                <a href="https://www.linkedin.com" target="_blank" class="hero-social-icon" title="LinkedIn">in</a>
+              </div>
+            </div>
+            <div class="col-lg-4">
               <p class="hero-summary">
                 Senior international specialist with 15+ years of experience across
                 UNICEF, UNFPA, and UN agencies in South Asia, MENA, and fragile/
@@ -567,18 +776,6 @@
                 knowledge management; and immunization systems strengthening, EVM 2.0,
                 vaccine supply chain, and cold chain management.
               </p>
-              <div class="hero-badges">
-                <span class="hero-badge">EVM 2.0 Master Trainer - UNICEF MENARO</span>
-                <span class="hero-badge">Former UNICEF Afghanistan International Staff (P3)</span>
-                <span class="hero-badge">Awarded by MoPH Afghanistan</span>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="hero-contact">
-                <div><strong>Email:</strong> <a href="mailto:sirum_pk@outlook.com">sirum_pk@outlook.com</a></div>
-                <div><strong>Phone / WhatsApp:</strong> <a href="tel:+923210004898">+92 321 0004898</a></div>
-                <div><strong>Location:</strong> Lahore, Pakistan</div>
-              </div>
             </div>
           </div>
         </div>
@@ -598,12 +795,12 @@
 
           <div class="summary-grid">
             <div class="summary-item"><strong data-counter="15" data-suffix="+">15+</strong><span>Years Experience</span></div>
-            <div class="summary-item"><strong data-counter="2">2</strong><span>Core Technical Domains</span></div>
+            <div class="summary-item"><strong>Multi</strong><span>Technical Domains</span></div>
             <div class="summary-item"><strong data-counter="500" data-suffix="+">500+</strong><span>Facilities with VSTMS</span></div>
-            <div class="summary-item"><strong data-counter="6000" data-suffix="+">6000+</strong><span>Daily SMS Reporting Entries</span></div>
-            <div class="summary-item"><strong data-counter="34">34</strong><span>Afghanistan Provinces in EPI MIS</span></div>
-            <div class="summary-item"><strong data-counter="7" data-suffix="+">7+</strong><span>Regional Country EVM Coverage</span></div>
-          </div>
+            <div class="summary-item"><strong>Pakistan</strong><span>Primary Focus</span></div>
+            <div class="summary-item"><strong>Afghanistan</strong><span>Key Programs</span></div>
+            <div class="summary-item"><strong>10+</strong><span>Countries Served</span></div>
+            </div>
         </div>
       </div>
     </section>
@@ -611,7 +808,7 @@
     <section class="section pt-0" id="data-analytics">
       <div class="container">
         <div class="block">
-          <span class="section-tag">Main Section 1</span>
+          <!-- <span class="section-tag">Main Section 1</span> -->
           <h2 class="section-title">Data, Analytics, M&amp;E, MIS Systems, and Knowledge Management</h2>
           <p class="section-text">
             Designing and deploying digital systems that transform fragmented data into
@@ -677,7 +874,7 @@
     <section class="section pt-0" id="immunization">
       <div class="container">
         <div class="block">
-          <span class="section-tag">Main Section 2</span>
+          <!-- <span class="section-tag">Main Section 2</span>s -->
           <h2 class="section-title">Immunization, Vaccine Management, EVM 2.0, and Supply Chain</h2>
           <p class="section-text">
             Leading technical support for EVM assessments, costed improvement planning,
@@ -732,9 +929,6 @@
               <span class="chip">Libya</span>
               <span class="chip">Nepal</span>
               <span class="chip">Jordan</span>
-              <span class="chip">Morocco</span>
-              <span class="chip">Tunisia</span>
-              <span class="chip">Djibouti</span>
             </div>
           </div>
         </div>
@@ -744,8 +938,8 @@
     <section class="section pt-0" id="experience">
       <div class="container">
         <div class="block">
-          <span class="section-tag">Experience</span>
-          <h2 class="section-title">Selected International Assignments</h2>
+          <span class="section-tag">Experince &amp; Skill</span>
+          <h2 class="section-title">Experince &amp; Skill</h2>
 
           <div class="experience-list">
             <div class="experience-item">
@@ -756,7 +950,7 @@
                 </div>
                 <span class="exp-time">2025</span>
               </div>
-              <p>Led national EVM 2.0 assessment and costed CiP for MoPH and UNRWA.</p>
+              <p>Led national EVM 2.0 assessment using MERA/EVM2 tools with methodology design, site sampling, and data validation. Developed costed Comprehensive Improvement Plans (CiPs) aligned with Gavi supply chain priorities for MoPH and UNRWA. Provided strategic recommendations for vaccine supply chain and cold chain strengthening across Lebanese healthcare facilities.</p>
             </div>
 
             <div class="experience-item">
@@ -767,7 +961,7 @@
                 </div>
                 <span class="exp-time">2023-2024</span>
               </div>
-              <p>Conducted ten-year EPI desk review and produced national EVM analysis report.</p>
+              <p>Conducted comprehensive 10-year national Expanded Programme on Immunization (EPI) desk review analyzing immunization coverage, systems, and performance trends. Completed national EVM 2.0 assessment with detailed analysis of vaccine supply chain, cold chain management, and delivery systems. Produced evidence-based recommendations and capacity-building strategies for strengthening Libya's immunization infrastructure in a fragile setting.</p>
             </div>
 
             <div class="experience-item">
@@ -778,7 +972,7 @@
                 </div>
                 <span class="exp-time">2022-2023</span>
               </div>
-              <p>Developed regional supply chain dashboard and CiP tracking for MENA country support.</p>
+              <p>Designed and deployed MENA Regional Immunisation Supply Chain Dashboard with 5 integrated modules tracking vaccine stock, CCE inventory, temperature monitoring, and EVM metrics across 5 countries. Built automated CiP Tracking Dashboard for monitoring implementation of costed improvement plans and Gavi supply chain priorities. Provided technical mentoring as EVM 2.0 Master Trainer supporting national teams across the Middle East and North Africa region.</p>
             </div>
 
             <div class="experience-item">
@@ -789,7 +983,7 @@
                 </div>
                 <span class="exp-time">2020-2021</span>
               </div>
-              <p>Managed campaign and outbreak response data in conflict-affected implementation areas.</p>
+              <p>Managed immunization campaign data collection and outbreak response monitoring systems in Yemen's complex conflict-affected settings. Built Power BI outbreak response dashboards for real-time pre-campaign, intra-campaign, and post-campaign performance tracking for Polio and Measles-Rubella SIAs. Provided critical data support for campaign microplanning, independent monitoring, and post-campaign evaluation under challenging operational conditions.</p>
             </div>
 
             <div class="experience-item">
@@ -800,7 +994,7 @@
                 </div>
                 <span class="exp-time">2019-2020</span>
               </div>
-              <p>Built automated regional EVM dashboard supporting seven South Asian countries.</p>
+              <p>Designed and deployed ROSA Regional EVM Dashboard with automated scoring and multi-country integration tracking vaccine supply chain and EVM assessment metrics across 7 South Asian countries. Built data collection and validation workflows integrating national EVM assessment results with regional analytics. Enabled regional teams and UNICEF country offices to monitor vaccine management performance, identify bottlenecks, and prioritize improvement actions across Pakistan, Afghanistan, Nepal, and partner countries.</p>
             </div>
 
             <div class="experience-item">
@@ -811,7 +1005,118 @@
                 </div>
                 <span class="exp-time">2016-2018</span>
               </div>
-              <p>Led VSTMS deployment in 500+ facilities and contributed to Gavi DQIP implementation.</p>
+              <p>Led deployment of Afghanistan's first national VSTMS (Vaccine Stock and Temperature Monitoring System) covering 500+ healthcare facilities across 34 provinces with mobile/cloud-based real-time monitoring capabilities. Designed Afghanistan's first national EPI MIS and Routine Immunisation Dashboard linked with HMIS/EPIMIS/DHS providing evidence for programme management. Contributed to Gavi DQIP (Data Quality Improvement Programme) implementation and received award from Ministry of Public Health for outstanding programme contributions and systems strengthening impact.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pt-0" id="it-skills">
+      <div class="container">
+        <div class="block">
+          <span class="section-tag">IT Skills</span>
+          <h2 class="section-title">Technical Tools and Digital Systems Expertise</h2>
+
+          <div class="row g-3 mt-1">
+            <div class="col-md-6 col-xl-4">
+              <div class="topic-card h-100">
+                <h4>Analytics and Statistics</h4>
+                <ul class="topic-list">
+                  <li>Power BI dashboards and automated reporting.</li>
+                  <li>SPSS, R, Python (pandas, scipy, matplotlib).</li>
+                  <li>Advanced Excel and SQL/MySQL.</li>
+                  <li>Statistical analysis, regression, and data triangulation.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+              <div class="topic-card h-100">
+                <h4>GIS and Health Information Systems</h4>
+                <ul class="topic-list">
+                  <li>ArcGIS, QGIS, equity and high-risk mapping.</li>
+                  <li>DHIS2, HMIS/EPIMIS, DHS integration use.</li>
+                  <li>VLMIS/eLMIS and Thrive360 workflows.</li>
+                  <li>EPI MIS and VSTMS/ICE3 monitoring systems.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+              <div class="topic-card h-100">
+                <h4>Data Collection and KM Platforms</h4>
+                <ul class="topic-list">
+                  <li>KoboCollect, ODK, RapidPro, MHero, Primero, Ona.</li>
+                  <li>Mobile and offline survey deployment at scale.</li>
+                  <li>SharePoint portal design and knowledge repositories.</li>
+                  <li>ASP.NET, PHP, SQL Server, MySQL, Adobe tools.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pt-0" id="achivements">
+      <div class="container">
+        <div class="block">
+          <span class="section-tag">Achivements</span>
+          <h2 class="section-title">Major Achivements and Impact Highlights</h2>
+
+          <div class="experience-list">
+            <div class="experience-item">
+              <div class="exp-head">
+                <div>
+                  <h3 class="exp-role">UNICEF Global Roster Consultant</h3>
+                  <p class="exp-org">Vaccine Management (2025-2028)</p>
+                </div>
+                <span class="exp-time">Global</span>
+              </div>
+              <p>Selected on UNICEF global roster for vaccine management technical support.</p>
+            </div>
+
+            <div class="experience-item">
+              <div class="exp-head">
+                <div>
+                  <h3 class="exp-role">EVM 2.0 Master Trainer</h3>
+                  <p class="exp-org">UNICEF MENARO</p>
+                </div>
+                <span class="exp-time">2023</span>
+              </div>
+              <p>Recognized as regional EVM 2.0 master trainer with multi-country mentoring role.</p>
+            </div>
+
+            <div class="experience-item">
+              <div class="exp-head">
+                <div>
+                  <h3 class="exp-role">National and Regional Digital Systems Built</h3>
+                  <p class="exp-org">Afghanistan, MENA, ROSA</p>
+                </div>
+                <span class="exp-time">High Impact</span>
+              </div>
+              <p>Built Afghanistan first EPI MIS, MENA supply chain dashboard, and ROSA EVM dashboard.</p>
+            </div>
+
+            <div class="experience-item">
+              <div class="exp-head">
+                <div>
+                  <h3 class="exp-role">Scale Achievement in Field Systems</h3>
+                  <p class="exp-org">UNICEF Afghanistan and Pakistan</p>
+                </div>
+                <span class="exp-time">500+ / 6000+</span>
+              </div>
+              <p>VSTMS deployed in 500+ facilities and Punjab SMS platform processing 6000+ daily entries.</p>
+            </div>
+
+            <div class="experience-item">
+              <div class="exp-head">
+                <div>
+                  <h3 class="exp-role">Official Recognition by MoPH Afghanistan</h3>
+                  <p class="exp-org">Programme Contributions</p>
+                </div>
+                <span class="exp-time">Awarded</span>
+              </div>
+              <p>Awarded for outstanding programme support and immunization system strengthening contributions.</p>
             </div>
           </div>
         </div>
@@ -881,6 +1186,8 @@
     <footer class="footer">
       <div class="container">&copy; 2026 Sumaira Irum Malik | Professional Digital Profile</div>
     </footer>
+
+    <button class="back-to-top" aria-label="Back to top">↑</button>
 
     <script>
       (function () {
@@ -1042,6 +1349,36 @@
 
           window.addEventListener("mouseleave", function () {
             heroPanel.style.transform = "translate3d(0,0,0)";
+          });
+        }
+
+        /* Staggered subtle badge float */
+        var heroBadges = document.querySelectorAll('.hero-badge');
+        heroBadges.forEach(function(b, i) {
+          var delay = 600 + i * 180;
+          setTimeout(function() {
+            if (!reduceMotion) {
+              b.style.animation = 'floatY 3.6s ease-in-out ' + (i * 0.4) + 's infinite';
+            }
+          }, delay);
+        });
+
+        /* Back to top button behavior */
+        var backToTop = document.querySelector('.back-to-top');
+        if (backToTop) {
+          var toggleBack = function() {
+            if (window.scrollY > 320) {
+              backToTop.classList.add('show');
+            } else {
+              backToTop.classList.remove('show');
+            }
+          };
+
+          toggleBack();
+          window.addEventListener('scroll', toggleBack, { passive: true });
+
+          backToTop.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
           });
         }
       })();
